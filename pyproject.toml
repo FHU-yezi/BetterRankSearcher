@@ -12,6 +12,7 @@ pywebio = "^1.6.2"
 PyYAML = "^6.0"
 httpx = "^0.23.0"
 motor = "^3.0.0"
+APScheduler = "^3.9.1"
 
 [tool.poetry.dev-dependencies]
 flake8 = "^5.0.4"
