@@ -37,7 +37,7 @@ def index():
         toast(data["message"], color="warn")
     else:
         put_markdown("\n".join([
-            f"数据更新时间：{data['newest_data_date']}",
+            f"数据更新时间：{data['data_update_time']}",
             f"总数据量：{data['data_count']}",
             "数据来源：简书"
         ]))

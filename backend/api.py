@@ -8,18 +8,18 @@ api = Blueprint("api", url_prefix="/api")
 
 @api.post("/data_info")
 async def data_info_handler(request):
-    newest_data_date = list(
+    data_update_time = list(
         data.find({}, {"_id": 0, "date": 1})
         .sort("date", -1)
         .limit(1)
     )[0]["date"]
-    newest_data_date = str(newest_data_date).split()[0]
+    data_update_time = str(data_update_time).split()[0]
 
     data_count = data.count_documents({})
 
     return json({
         "code": 200,
-        "newest_data_date": newest_data_date,
+        "data_update_time": data_update_time,
         "data_count": data_count
     })
 
