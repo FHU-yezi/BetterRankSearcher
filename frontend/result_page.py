@@ -14,11 +14,18 @@ DATA_HEADER_MAPPING = [
     ("链接", "article_url")
 ]
 
+BAN_WORDS = r"\"\' =!@#$%^&*()[]{},./<>:;`~"
+
 
 def result():
     """查询结果
     """
     params = get_params()
+
+    for char in params:
+        if char in BAN_WORDS:
+            toast("输入的昵称不合法", color="error")
+            return
 
     with put_loading(color="success"):
         response = httpx_post("http://backend:8081/api/query_record",
