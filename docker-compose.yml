@@ -1,0 +1,47 @@
+version: "3"
+
+networks:
+  mongodb:
+    external: true
+  internal:
+
+services:
+  backend:
+    image: betterranksearcher-backend:0.1.0
+    build:
+      dockerfile: Dockerfile.backend
+    networks:
+      - internal
+      - mongodb
+    environment:
+    - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    stop_grace_period: 1s
+  frontend:
+    image: betterranksearcher-frontend:0.1.0
+    build:
+      dockerfile: Dockerfile.frontend
+    ports:
+      - "8080:8080"
+    networks:
+      - internal
+    environment:
+    - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 256M
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+    stop_grace_period: 1s
