@@ -5,7 +5,7 @@ from pywebio.output import (put_html, put_loading, put_markdown, put_table,
 from utils.html_format_helper import html_link
 from utils.url_params_helper import get_params
 
-DATA_HEADER_MAPING = [
+DATA_HEADER_MAPPING = [
     ("上榜日期", "date"),
     ("排名", "ranking"),
     ("文章", "article_title"),
@@ -36,5 +36,5 @@ def result():
 
             put_table(
                 tdata=data["data"],
-                header=DATA_HEADER_MAPING
+                header=DATA_HEADER_MAPPING
             )
