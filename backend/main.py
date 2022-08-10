@@ -7,6 +7,7 @@ from utils.cron_helper import CronToKwargs
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(main_fetcher, "cron", **CronToKwargs("0 0 8 1/1 * *"))
+scheduler.start()
 
 app = Sanic(__name__)
 app.blueprint(api)
