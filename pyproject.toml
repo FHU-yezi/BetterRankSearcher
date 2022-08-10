@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "BetterRankSearcher"
+version = "0.1.0"
+description = ""
+authors = ["yezi <yehaowei20060411@qq.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+sanic = "^22.6.1"
+pywebio = "^1.6.2"
+PyYAML = "^6.0"
+httpx = "^0.23.0"
+motor = "^3.0.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^5.0.4"
+mypy = "^0.971"
+yapf = "^0.32.0"
+types-PyYAML = "^6.0.11"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
